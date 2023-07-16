@@ -2,8 +2,14 @@ return {
   "elixir-tools/elixir-tools.nvim",
   version = "*",
   event = { "BufReadPre", "BufNewFile" },
-  config = function() require("elixir").setup { elixirls = { enable = false } } end,
-  enabled = false,
+  opts = {
+    nextls = { enable = true },
+    credo = { enable = true },
+    -- use mason's eixirls
+    elixirls = {
+      enable = false,
+    },
+  },
   ft = { "heex", "elixir" },
   dependencies = {
     "nvim-lua/plenary.nvim",

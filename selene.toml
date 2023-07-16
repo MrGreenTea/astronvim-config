@@ -1,4 +1,4 @@
 std="lua51+vim"
 
-[config]
+[lints]
 multiple_statements = "allow"
