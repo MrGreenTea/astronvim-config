@@ -14,6 +14,7 @@ return {
   -- { import = "astrocommunity.completion.codeium-vim" },
 
   -- Motion
-  { import = "astrocommunity.motion.mini-surround" },
-  { import = "astrocommunity.motion.flash-nvim" },
+  -- { import = "astrocommunity.motion.mini-surround" },
+
+  -- Test
 }
