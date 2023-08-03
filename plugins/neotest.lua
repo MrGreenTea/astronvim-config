@@ -1,5 +1,6 @@
 -- stylua: ignore
-local running_animated = { "⠄", "⠆", "⠇", "⠋", "⠉", "⠈", "⠈", "⠘", "⠸", "⠴", "⠤", "⠄" }
+local running_animated = { "⠄", "⠆", "⠇", "⠃", "⠁", "⠁", "⠁", "⠉", "⠉", "⠈", "⠈", "⠈", "⠘",
+  "⠸", "⠰", "⠠", "⠠", "⠠", "⠤", "⠤", "⠄", "⠄" }
 
 return {
   "nvim-neotest/neotest",
