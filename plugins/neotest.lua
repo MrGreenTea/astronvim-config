@@ -44,6 +44,11 @@ return {
       desc = "Run current file",
     },
     {
+      "<leader>TA",
+      function() require("neotest").run.run { suite = true } end,
+      desc = "Run all tests",
+    },
+    {
       "<leader>Ts",
       function() require("neotest").run.stop() end,
       desc = "Stop running tests",
@@ -58,9 +63,15 @@ return {
       "<leader>Td",
       function()
         require("neotest").run.run {
+          suite = false,
           strategy = "dap",
         }
       end,
+    },
+    {
+      desc = "Open neotest summary",
+      "<leader>TS",
+      function() require("neotest").summary.toggle() end,
     },
   },
   config = function(_, opts)
