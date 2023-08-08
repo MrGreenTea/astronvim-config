@@ -10,6 +10,8 @@ return {
     "antoinemadec/FixCursorHold.nvim",
     "nvim-neotest/neotest-python",
     "rouge8/neotest-rust",
+    "marilari88/neotest-vitest",
+    "thenbe/neotest-playwright",
     {
       "folke/neodev.nvim",
       opts = function(_, opts)
@@ -21,12 +23,19 @@ return {
       end,
     },
   },
-  ft = { "python", "rust" },
+  cmd = { "Neotest", "NeotestPlaywrightProject", "NeotestPlaywrightPreset", "NeotestPlaywrightRefresh" },
   opts = function()
     return {
       adapters = {
         require "neotest-rust",
         require "neotest-python",
+        require "neotest-vitest",
+        require("neotest-playwright").adapter {
+          options = {
+            persist_project_selection = true,
+            enable_dynamic_test_discovery = true,
+          },
+        },
       },
       icons = {
         running_animated = running_animated,
@@ -74,6 +83,11 @@ return {
       "<leader>TS",
       function() require("neotest").summary.toggle() end,
     },
+    {
+      desc = "Playwright attach",
+      "<leader>Tp",
+      function() require("neotest").playwright.attachment() end,
+    },
   },
   config = function(_, opts)
     -- get neotest namespace (api call creates or returns namespace)
@@ -86,6 +100,13 @@ return {
         end,
       },
     }, neotest_ns)
+
+    -- use overseer for neotest
+    if not opts.consumers then opts.consumers = {} end
+
+    -- opts.consumers.overseer = require "neotest.consumers.overseer"
+    opts.consumers.playwright = require("neotest-playwright.consumers").consumers
+
     require("neotest").setup(opts)
   end,
 }
