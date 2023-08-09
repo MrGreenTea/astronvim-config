@@ -9,7 +9,7 @@ return {
   init = function()
     vim.api.nvim_create_autocmd("User", {
       desc = "Auto select virtualenv on Nvim open",
-      pattern = "VeryLazy",
+      pattern = "AstroFile",
       callback = function()
         local venv = vim.fn.findfile("pyproject.toml", vim.fn.getcwd() .. ";")
         if venv ~= "" then require("venv-selector").retrieve_from_cache() end
