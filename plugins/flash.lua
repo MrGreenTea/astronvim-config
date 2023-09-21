@@ -6,7 +6,13 @@ return {
     {
       "s",
       mode = { "n", "x", "o" },
-      function() require("flash").jump() end,
+      function()
+        require("flash").jump {
+          jump = {
+            autojump = true,
+          },
+        }
+      end,
       desc = "Flash",
     },
     {
@@ -32,7 +38,15 @@ return {
     {
       "R",
       mode = { "o", "x" },
-      function() require("flash").treesitter_search() end,
+      function()
+        require("flash").treesitter_search {
+          label = {
+            rainbow = {
+              enabled = true,
+            },
+          },
+        }
+      end,
       desc = "Treesitter Search",
     },
   },
