@@ -8,5 +8,13 @@ return {
     ["<leader>T"] = {
       name = "Neotest",
     },
+    ["<leader>fo"] = {
+      function() require("telescope").extensions.frecency.frecency { workspace = "CWD" } end,
+      desc = "Find recent files",
+    },
+    ["<leader>fO"] = {
+      function() require("telescope").extensions.frecency.frecency() end,
+      desc = "Find all recent files",
+    },
   },
 }
