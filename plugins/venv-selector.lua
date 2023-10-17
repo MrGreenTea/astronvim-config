@@ -7,9 +7,8 @@ return {
     dap_enabled = "true",
   },
   init = function()
-    vim.api.nvim_create_autocmd("User", {
+    vim.api.nvim_create_autocmd("UIEnter", {
       desc = "Auto select virtualenv on Nvim open",
-      pattern = "AstroFile",
       callback = function()
         local venv = vim.fn.findfile("pyproject.toml", vim.fn.getcwd() .. ";")
         if venv ~= "" then require("venv-selector").retrieve_from_cache() end
