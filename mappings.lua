@@ -6,7 +6,10 @@
 return {
   n = {
     ["<leader>T"] = {
-      name = "Neotest",
+      name = "󰙨 Neotest",
+    },
+    ["<leader>r"] = {
+      name = " Overseer",
     },
     ["<leader>fo"] = {
       function() require("telescope").extensions.frecency.frecency { workspace = "CWD" } end,
